@@ -1,0 +1,135 @@
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    align-items: center;
+    margin: 1%;
+}
+
+nav {
+    background-color: #10364cff;
+    padding: 10px 0; /* Espaciado vertical */
+}
+
+/* Estilo para la lista de navegación */
+.nav-list {
+    list-style: none; /* Quitar viñetas */
+    display: grid; /* Cambiar a cuadrícula */
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr)); /* Ajustar columnas automáticamente */
+    gap: 10px; /* Espaciado entre las cuadrículas */
+    margin: 0;
+    padding: 0 10px;
+}
+
+.nav-list li {
+    background-color: #10364cff; /* Fondo inicial */
+    text-align: center; /* Centrar texto */
+    border-right: 1px solid #1d475eff;
+}
+
+.nav-list li:last-child {
+    border-right: none; /* Quitar la línea del último elemento */
+}
+
+.nav-list a {
+    text-decoration: none; /* Quitar subrayado inicial */
+    color: #fff; /* Texto blanco */
+    font-size: 16px; /* Tamaño de fuente */
+    font-weight: bold; /* Negrita */
+    display: inline-block; /* Asegurar que el pseudo-elemento ::after funcione */
+    padding: 0px 10px; /* Espaciado interno */
+    position: relative; /* Necesario para posicionar ::after */
+    transition: color 0.3s ease; /* Transición suave para el color */
+}
+
+/* Asegurar que la animación de la línea no afecte al dropdown */
+.nav-list > li > a::after {
+    content: ''; /* Crear un pseudo-elemento vacío */
+    position: absolute;
+    left: 0;
+    bottom: 0px; /* Ubicar debajo del texto */
+    width: 0; /* Ancho inicial */
+    height: 2px; /* Altura de la línea */
+    background-color: #fff; /* Color de la línea */
+    transition: width 0.3s ease; /* Transición suave para el ancho */
+}
+
+.nav-list > li:hover > a::after {
+    width: 100%;
+    background-color: #97C9D8; /* Color de la línea */
+}
+
+/* Cambiar el color del texto solo para los enlaces de nivel superior */
+.nav-list > li:hover > a {
+    color: #97C9D8; /* Cambiar el color de la letra al hacer hover */
+}
+
+/* Evitar que los enlaces dentro del dropdown-menu cambien de color */
+.nav-list > li:hover > a:not(.dropdown-menu a) {
+    color: #97C9D8; /* Cambiar el color de la letra al hacer hover */
+}
+
+/* Estilo para los enlaces del dropdown-menu */
+.nav-list .dropdown-menu a {
+    color: #ffffff; /* Mantener el color blanco para los enlaces del menú desplegable */
+    background-color: #2a5d7d; /* Fondo inicial de las opciones */
+    text-decoration: none; /* Quitar subrayado */
+    transition: background-color 0.3s ease, transform 0.2s ease; /* Transiciones suaves */
+}
+
+/* Estilo al hacer hover en los enlaces del menú desplegable */
+.nav-list .dropdown-menu a:hover {
+    color: #ffffff; /* Mantener el color blanco al hacer hover */
+    background-color: #3b7ca1; /* Fondo al hacer hover */
+    transform: scale(1.05); /* Efecto de zoom al hacer hover */
+}
+
+.dropdown {
+    position: relative; /* Necesario para posicionar el submenú */
+}
+
+/* Estilo para el dropdown-menu */
+.dropdown-menu {
+    display: none; /* Ocultar el submenú por defecto */
+    position: absolute;
+    top: 100%; /* Mostrar debajo del elemento principal */
+    left: -10px; /* Ajustar para que sea más ancho que la pestaña */
+    min-width: 150%; /* Hacer el menú más ancho que la pestaña */
+    background-color: #1d475eff; /* Cambiar el fondo del submenú */
+    list-style: none;
+    padding: 10px; /* Añadir espaciado interno */
+    margin: 0;
+    border-radius: 8px; /* Bordes redondeados */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra para destacar */
+    z-index: 1000; /* Asegurar que esté encima de otros elementos */
+}
+
+.dropdown-menu li {
+    margin-bottom: 5px; /* Espaciado entre opciones */
+}
+
+.dropdown-menu li:last-child {
+    margin-bottom: 0; /* Quitar el espaciado del último elemento */
+}
+
+.dropdown-menu a {
+    display: block;
+    padding: 5px 10px; /* Espaciado interno */
+    font-size: 14px;
+    font-weight: 600;
+    color: #ffffff; /* Texto blanco */
+    background-color: #2a5d7d; /* Fondo de las opciones */
+    text-decoration: none;
+    border-radius: 4px; /* Bordes redondeados para las opciones */
+    transition: background-color 0.3s ease, transform 0.2s ease; /* Transiciones suaves */
+}
+
+.dropdown-menu a:hover {
+    background-color: #3b7ca1; /* Fondo al hacer hover */
+    transform: scale(1.05); /* Efecto de zoom al hacer hover */
+}
+
+/* Mostrar el dropdown-menu al hacer hover en el elemento padre */
+.nav-list > .dropdown:hover > .dropdown-menu {
+    display: block;
+}
+
