@@ -1,26 +1,26 @@
-.text-title1 {
+.h1 {
     font-size: 32px;
     font-weight: 900;
 }
-.text-title2{
+.h2{
     font-size: 26px;
     font-weight: 800;
 }
-.text-title3{
+.h3{
     font-size: 24px;
     font-weight: 700;
 }
-.text-body {
+.p {
     font-size: 16px; 
     font-weight: 500;
 }
-.footer-note {
+.footer p {
     text-align: right;
     margin-top: 40px;
     font-size: 14px;
     font-weight: 300;
 }
-.spaced-list li {
+ul.spaced-list li {
     margin-bottom: 16px;
 }
 .text-center {

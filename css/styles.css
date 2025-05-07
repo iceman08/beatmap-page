@@ -82,7 +82,10 @@ nav {
     background-color: #3b7ca1; /* Fondo al hacer hover */
     transform: scale(1.05); /* Efecto de zoom al hacer hover */
 }
-
+.nav-list > li:last-child .dropdown-menu {
+    left: auto; /* Eliminar el valor de left */
+    right: 0; /* Alinear el menú al borde derecho */
+}
 .dropdown {
     position: relative; /* Necesario para posicionar el submenú */
 }
@@ -148,4 +151,84 @@ html, body {
     color: white; /* Color del texto */
     text-align: center;
     padding: 10px 0;
+}
+
+.formulario{
+    line-height: 0.2;
+    background-color: #1d475e;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh; /* Altura completa de la ventana */
+}
+
+.formulario input,
+.formulario select,
+.formulario textarea {
+    width: 90%; /* Ancho de los campos */
+    max-width: 420px; /* Ancho máximo */
+    padding: 10px; /* Espaciado interno */
+    margin: 5px 0; /* Espaciado vertical */
+    border: 1px solid #97C9D8; /* Borde blanco */
+    background-color: transparent; /* Fondo transparente */
+    color: white; /* Color del texto */
+    font-size: 16px; /* Tamaño de fuente */
+    border-radius: 5px; /* Bordes redondeados */
+    outline: none; /* Quitar borde al enfocar */
+    transition: all 0.3s ease; /* Transición suave */
+    resize: none;
+}
+.formulario input::placeholder,
+.formulario select::placeholder,
+.formulario textarea::placeholder {
+    color: white; /* Color del texto del placeholder */
+    opacity: 0.8; /* Opacidad inicial */
+    font-size: 16px; /* Tamaño inicial */
+    transition: all 0.3s ease; /* Transición suave para todos los cambios */
+}
+.formulario input:focus,
+.formulario select:focus,
+.formulario textarea:focus {
+    border: 1px solid #fff; /* Cambiar el color del borde sin engrosarlo */
+}
+
+
+.formulario button{
+    width: 95%; /* Ancho de los campos */
+    max-width: 420px; /* Ancho máximo */
+    padding: 10px; /* Espaciado interno */
+    margin: 5px 0; /* Espaciado vertical */
+    border: 1px solid white; /* Borde blanco */
+    background-color: #10364cff; /* Cambiar el color de fondo */
+    color: white; /* Cambiar el color del texto 
+    
+    font-size: 16px; /* Tamaño de fuente */
+    border-radius: 5px; /* Bordes redondeados */
+    outline: none; /* Quitar borde al enfocar */
+    transition: all 0.3s ease; /* Transición suave */
+}
+.formulario button:hover {
+    transform: scale(1.05); /* Aumentar ligeramente el tamaño */
+    background-color: white; /* Fondo transparente */
+    color: #1d475e; /* Color del texto */
+}
+.formulario input::placeholder {
+    color: white; /* Color del texto del placeholder */
+    opacity: 0.8; /* Opacidad del placeholder */
+}
+
+.formulario .input-group {
+    display: flex;
+    align-items: center;
+    justify-content: space-between; /* Espaciado uniforme entre los elementos */
+    width: 100%; /* Ancho del grupo */
+    max-width: 405px; /* Ancho máximo */
+    gap: 10px; /* Espaciado entre los campos */
+}
+
+.formulario .input-group input {
+    flex: 1; /* Cada campo ocupa el mismo espacio */
+    min-width: 0; /* Evitar que los inputs se desborden */
 }
