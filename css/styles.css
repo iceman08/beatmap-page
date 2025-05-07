@@ -7,131 +7,131 @@
 
 nav {
     background-color: #10364cff;
-    padding: 10px 0; /* Espaciado vertical */
+    padding: 10px 0; 
 }
 
-/* Estilo para la lista de navegación */
+
 .nav-list {
-    list-style: none; /* Quitar viñetas */
-    display: grid; /* Cambiar a cuadrícula */
-    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr)); /* Ajustar columnas automáticamente */
-    gap: 10px; /* Espaciado entre las cuadrículas */
+    list-style: none; 
+    display: grid; 
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr)); 
+    gap: 10px; 
     margin: 0;
     padding: 0 10px;
 }
 
 .nav-list li {
-    background-color: #10364cff; /* Fondo inicial */
-    text-align: center; /* Centrar texto */
+    background-color: #10364cff; 
+    text-align: center; 
     border-right: 1px solid #1d475eff;
 }
 
 .nav-list li:last-child {
-    border-right: none; /* Quitar la línea del último elemento */
+    border-right: none; 
 }
 
 .nav-list a {
-    text-decoration: none; /* Quitar subrayado inicial */
-    color: #fff; /* Texto blanco */
-    font-size: 16px; /* Tamaño de fuente */
-    font-weight: bold; /* Negrita */
-    display: inline-block; /* Asegurar que el pseudo-elemento ::after funcione */
-    padding: 0px 10px; /* Espaciado interno */
-    position: relative; /* Necesario para posicionar ::after */
-    transition: color 0.3s ease; /* Transición suave para el color */
+    text-decoration: none; 
+    color: #fff; 
+    font-size: 16px; 
+    font-weight: bold; 
+    display: inline-block; 
+    padding: 0px 10px; 
+    position: relative; 
+    transition: color 0.3s ease; 
 }
 
-/* Asegurar que la animación de la línea no afecte al dropdown */
+
 .nav-list > li > a::after {
-    content: ''; /* Crear un pseudo-elemento vacío */
+    content: ''; 
     position: absolute;
     left: 0;
-    bottom: 0px; /* Ubicar debajo del texto */
-    width: 0; /* Ancho inicial */
-    height: 2px; /* Altura de la línea */
-    background-color: #fff; /* Color de la línea */
-    transition: width 0.3s ease; /* Transición suave para el ancho */
+    bottom: 0px; 
+    width: 0; 
+    height: 2px; 
+    background-color: #fff; 
+    transition: width 0.3s ease; 
 }
 
 .nav-list > li:hover > a::after {
     width: 100%;
-    background-color: #97C9D8; /* Color de la línea */
+    background-color: #97C9D8; 
 }
 
-/* Cambiar el color del texto solo para los enlaces de nivel superior */
+
 .nav-list > li:hover > a {
-    color: #97C9D8; /* Cambiar el color de la letra al hacer hover */
+    color: #97C9D8; 
 }
 
-/* Evitar que los enlaces dentro del dropdown-menu cambien de color */
+
 .nav-list > li:hover > a:not(.dropdown-menu a) {
-    color: #97C9D8; /* Cambiar el color de la letra al hacer hover */
+    color: #97C9D8; 
 }
 
-/* Estilo para los enlaces del dropdown-menu */
+
 .nav-list .dropdown-menu a {
-    color: #ffffff; /* Mantener el color blanco para los enlaces del menú desplegable */
-    background-color: #2a5d7d; /* Fondo inicial de las opciones */
-    text-decoration: none; /* Quitar subrayado */
-    transition: background-color 0.3s ease, transform 0.2s ease; /* Transiciones suaves */
+    color: #ffffff; 
+    background-color: #2a5d7d; 
+    text-decoration: none; 
+    transition: background-color 0.3s ease, transform 0.2s ease; 
 }
 
-/* Estilo al hacer hover en los enlaces del menú desplegable */
+
 .nav-list .dropdown-menu a:hover {
-    color: #ffffff; /* Mantener el color blanco al hacer hover */
-    background-color: #3b7ca1; /* Fondo al hacer hover */
-    transform: scale(1.05); /* Efecto de zoom al hacer hover */
+    color: #ffffff; 
+    background-color: #3b7ca1; 
+    transform: scale(1.05); 
 }
 .nav-list > li:last-child .dropdown-menu {
-    left: auto; /* Eliminar el valor de left */
-    right: 0; /* Alinear el menú al borde derecho */
+    left: auto; 
+    right: 0; 
 }
 .dropdown {
-    position: relative; /* Necesario para posicionar el submenú */
+    position: relative; 
 }
 
-/* Estilo para el dropdown-menu */
+
 .dropdown-menu {
-    display: none; /* Ocultar el submenú por defecto */
+    display: none; 
     position: absolute;
-    top: 100%; /* Mostrar debajo del elemento principal */
-    left: -10px; /* Ajustar para que sea más ancho que la pestaña */
-    min-width: 150%; /* Hacer el menú más ancho que la pestaña */
-    background-color: #1d475eff; /* Cambiar el fondo del submenú */
+    top: 100%; 
+    left: -10px; 
+    min-width: 150%; 
+    background-color: #1d475eff; 
     list-style: none;
-    padding: 10px; /* Añadir espaciado interno */
+    padding: 10px; 
     margin: 0;
-    border-radius: 8px; /* Bordes redondeados */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra para destacar */
-    z-index: 1000; /* Asegurar que esté encima de otros elementos */
+    border-radius: 8px; 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); 
+    z-index: 1000; 
 }
 
 .dropdown-menu li {
-    margin-bottom: 5px; /* Espaciado entre opciones */
+    margin-bottom: 5px; 
 }
 
 .dropdown-menu li:last-child {
-    margin-bottom: 0; /* Quitar el espaciado del último elemento */
+    margin-bottom: 0; 
 }
 
 .dropdown-menu a {
     display: block;
-    padding: 5px 10px; /* Espaciado interno */
+    padding: 5px 10px; 
     font-size: 14px;
     font-weight: 600;
-    color: #ffffff; /* Texto blanco */
-    background-color: #2a5d7d; /* Fondo de las opciones */
+    color: #ffffff; 
+    background-color: #2a5d7d; 
     text-decoration: none;
-    border-radius: 4px; /* Bordes redondeados para las opciones */
-    transition: background-color 0.3s ease, transform 0.2s ease; /* Transiciones suaves */
+    border-radius: 4px; 
+    transition: background-color 0.3s ease, transform 0.2s ease; 
 }
 
 .dropdown-menu a:hover {
-    background-color: #3b7ca1; /* Fondo al hacer hover */
-    transform: scale(1.05); /* Efecto de zoom al hacer hover */
+    background-color: #3b7ca1; 
+    transform: scale(1.05); 
 }
 
-/* Mostrar el dropdown-menu al hacer hover en el elemento padre */
+
 .nav-list > .dropdown:hover > .dropdown-menu {
     display: block;
 }
@@ -143,12 +143,12 @@ html, body {
     flex-direction: column;
 }
 #header {
-    flex: 1; /* Permite que el contenido principal crezca */
+    flex: 1; 
 }
 
 #footer {
-    background-color: #10364cff; /* Color de fondo del footer */
-    color: white; /* Color del texto */
+    background-color: #10364cff; 
+    color: white; 
     text-align: center;
     padding: 10px 0;
 }
@@ -161,74 +161,72 @@ html, body {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    height: 100vh; /* Altura completa de la ventana */
+    height: 100vh; 
 }
 
 .formulario input,
 .formulario select,
 .formulario textarea {
-    width: 90%; /* Ancho de los campos */
-    max-width: 420px; /* Ancho máximo */
-    padding: 10px; /* Espaciado interno */
-    margin: 5px 0; /* Espaciado vertical */
-    border: 1px solid #97C9D8; /* Borde blanco */
-    background-color: transparent; /* Fondo transparente */
-    color: white; /* Color del texto */
-    font-size: 16px; /* Tamaño de fuente */
-    border-radius: 5px; /* Bordes redondeados */
-    outline: none; /* Quitar borde al enfocar */
-    transition: all 0.3s ease; /* Transición suave */
+    width: 90%;
+    max-width: 420px;
+    padding: 10px;
+    margin: 5px 0;
+    border: 1px solid #97C9D8;
+    background-color: transparent;
+    color: white;
+    font-size: 16px;
+    border-radius: 5px;
+    outline: none;
+    transition: all 0.3s ease;
     resize: none;
 }
 .formulario input::placeholder,
 .formulario select::placeholder,
 .formulario textarea::placeholder {
-    color: white; /* Color del texto del placeholder */
-    opacity: 0.8; /* Opacidad inicial */
-    font-size: 16px; /* Tamaño inicial */
-    transition: all 0.3s ease; /* Transición suave para todos los cambios */
+    color: white;
+    opacity: 0.8;
+    font-size: 16px;
+    transition: all 0.3s ease;
 }
 .formulario input:focus,
 .formulario select:focus,
 .formulario textarea:focus {
-    border: 1px solid #fff; /* Cambiar el color del borde sin engrosarlo */
+    border: 1px solid #fff;
 }
-
 
 .formulario button{
-    width: 95%; /* Ancho de los campos */
-    max-width: 420px; /* Ancho máximo */
-    padding: 10px; /* Espaciado interno */
-    margin: 5px 0; /* Espaciado vertical */
-    border: 1px solid white; /* Borde blanco */
-    background-color: #10364cff; /* Cambiar el color de fondo */
-    color: white; /* Cambiar el color del texto 
-    
-    font-size: 16px; /* Tamaño de fuente */
-    border-radius: 5px; /* Bordes redondeados */
-    outline: none; /* Quitar borde al enfocar */
-    transition: all 0.3s ease; /* Transición suave */
+    width: 95%;
+    max-width: 420px;
+    padding: 10px;
+    margin: 5px 0;
+    border: 1px solid white;
+    background-color: #10364cff;
+    color: white;
+    font-size: 16px;
+    border-radius: 5px;
+    outline: none;
+    transition: all 0.3s ease;
 }
 .formulario button:hover {
-    transform: scale(1.05); /* Aumentar ligeramente el tamaño */
-    background-color: white; /* Fondo transparente */
-    color: #1d475e; /* Color del texto */
+    transform: scale(1.05);
+    background-color: white;
+    color: #1d475e;
 }
 .formulario input::placeholder {
-    color: white; /* Color del texto del placeholder */
-    opacity: 0.8; /* Opacidad del placeholder */
+    color: white;
+    opacity: 0.8;
 }
 
 .formulario .input-group {
     display: flex;
     align-items: center;
-    justify-content: space-between; /* Espaciado uniforme entre los elementos */
-    width: 100%; /* Ancho del grupo */
-    max-width: 405px; /* Ancho máximo */
-    gap: 10px; /* Espaciado entre los campos */
+    justify-content: space-between;
+    width: 100%;
+    max-width: 405px;
+    gap: 10px;
 }
 
 .formulario .input-group input {
-    flex: 1; /* Cada campo ocupa el mismo espacio */
-    min-width: 0; /* Evitar que los inputs se desborden */
+    flex: 1;
+    min-width: 0;
 }
