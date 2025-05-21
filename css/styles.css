@@ -147,8 +147,7 @@ html, body {
 }
 
 #footer {
-    background-color: #10364cff; 
-    color: white; 
+    background-color: white; 
     text-align: center;
     padding: 10px 0;
 }
@@ -230,3 +229,19 @@ html, body {
     flex: 1;
     min-width: 0;
 }
+
+.social-grid {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 16px; 
+    margin-top: 5px;
+}
+
+.social-icon {
+    width: 32px;
+    height: 32px;
+    display: block;
+    filter: grayscale(100%) brightness(0);
+}
+
