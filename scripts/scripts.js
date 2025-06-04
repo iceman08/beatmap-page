@@ -18,51 +18,28 @@ toggle.addEventListener('click', () => {
 
 window.addEventListener('DOMContentLoaded', updateToggleIcon);
 
-// Enlaces del menú
-document.addEventListener("DOMContentLoaded", () => {
-    const menuLinks = document.querySelectorAll("nav a"); // Selecciona todos los enlaces del menú
-
-    menuLinks.forEach(link => {
-        link.addEventListener("click", (event) => {
-            const target = link.href; // Obtiene el href completo del enlace
-            const currentUrl = window.location.href; // Obtiene la URL completa actual
-
-            if (target === currentUrl || target.endsWith("#")) {
-                event.preventDefault(); // Previene la recarga si ya estás en la misma página
-            }
-        });
-    });
-});
-
-// Menú desplegable
+// Menú desplegable (hover)
 document.addEventListener('DOMContentLoaded', () => {
-    const dropdowns = document.querySelectorAll('.dropdown'); // Seleccionar todos los dropdowns
-
+    const dropdowns = document.querySelectorAll('.dropdown');
     dropdowns.forEach(dropdown => {
         const dropdownMenu = dropdown.querySelector('.dropdown-menu');
-
-        // Mostrar el menú al hacer hover
+        if (!dropdownMenu) return;
         dropdown.addEventListener('mouseenter', () => {
-            // Cerrar todos los demás menús
             dropdowns.forEach(otherDropdown => {
                 const otherMenu = otherDropdown.querySelector('.dropdown-menu');
-                if (otherMenu !== dropdownMenu) {
+                if (otherMenu && otherMenu !== dropdownMenu) {
                     otherMenu.style.display = 'none';
                 }
             });
-
-            // Mostrar el menú actual
             dropdownMenu.style.display = 'block';
         });
-
-        // Ocultar el menú al dejar de hacer hover
         dropdown.addEventListener('mouseleave', () => {
             dropdownMenu.style.display = 'none';
         });
     });
 });
 
-// Header y Footer
+// Cargar header y footer dinámicamente y agregar listeners a los enlaces del menú
 fetch('header.html')
     .then(res => res.text())
     .then(data => {
@@ -72,11 +49,11 @@ fetch('header.html')
         const menuLinks = document.querySelectorAll("nav a");
         menuLinks.forEach(link => {
             link.addEventListener("click", (event) => {
-                const target = link.href; // Obtiene el href completo del enlace
-                const currentUrl = window.location.href; // Obtiene la URL completa actual
-
-                if (target === currentUrl || target.endsWith("#")) {
-                    event.preventDefault(); // Previene la recarga si ya estás en la misma página
+                const href = link.getAttribute('href');
+                // Si el enlace no lleva a ningún lado
+                if (!href || href.trim() === "" || href.trim() === "#") {
+                    event.preventDefault();
+                    alert("Este enlace aún no está disponible. Página en construcción.");
                 }
             });
         });
@@ -90,14 +67,10 @@ fetch('footer.html')
     })
     .catch(err => console.error('Error al cargar el footer:', err));
 
-
-// Mostrar perdida de conexión
+// Mostrar aviso de pérdida de conexión
 function verificarConexion() {
     if (!navigator.onLine) {
-        // Oculta el contenido principal
         document.body.innerHTML = '';
-
-        // Crea el contenedor de mensaje
         const contenedor = document.createElement('div');
         contenedor.style.display = 'flex';
         contenedor.style.flexDirection = 'column';
@@ -106,14 +79,12 @@ function verificarConexion() {
         contenedor.style.height = '100vh';
         contenedor.style.background = '#181818';
 
-        // Imagen de sin conexión
         const img = document.createElement('img');
         img.src = 'img/No.png';
         img.alt = 'Sin conexión';
         img.style.width = '120px';
         img.style.marginBottom = '24px';
 
-        // Texto de advertencia
         const texto = document.createElement('p');
         texto.textContent = 'Parece que perdiste tu conexión a internet. Por favor, verifica tu red.';
         texto.style.color = '#fff';
@@ -124,6 +95,4 @@ function verificarConexion() {
         document.body.appendChild(contenedor);
     }
 }
-
-    // Ejecuta la función al cargar la página
-    window.addEventListener('DOMContentLoaded', verificarConexion);
+window.addEventListener('DOMContentLoaded', verificarConexion);
