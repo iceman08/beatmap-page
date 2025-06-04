@@ -91,7 +91,7 @@ function verificarConexion() {
         aviso.style.boxShadow = '0 2px 8px rgba(0,0,0,0.15)';
 
         const img = document.createElement('img');
-        img.src = 'img/No.png';
+        img.src = 'images/No.png';
         img.alt = 'Sin conexión';
         img.style.width = '40px';
         img.style.height = '40px';
