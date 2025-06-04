@@ -139,6 +139,7 @@ nav {
 html, body {
     height: 100%;
     margin: 0;
+    padding: 0;
     display: flex;
     flex-direction: column;
 }
@@ -147,9 +148,7 @@ html, body {
 }
 
 #footer {
-    background-color: white; 
-    text-align: center;
-    padding: 10px 0;
+    flex: 1;
 }
 
 .formulario{
@@ -230,18 +229,29 @@ html, body {
     min-width: 0;
 }
 
-.social-grid {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 16px; 
-    margin-top: 5px;
+body.dark-mode {
+    background: #181818;
+    color: #f1f1f1;
+}
+body.dark-mode input,
+body.dark-mode textarea {
+    background: #222;
+    color: #f1f1f1;
+    border: 1px solid #444;
+}
+body.dark-mode .formulario {
+    background: #232323;
+}
+body.dark-mode .imagen-principal img {
+    filter: brightness(0.7);
 }
 
-.social-icon {
-    width: 32px;
-    height: 32px;
-    display: block;
-    filter: grayscale(100%) brightness(0);
+body.dark-mode footer{
+    background: #181818;
+    color: #f1f1f1;
+    border-top: 1px solid #333;
 }
 
+body.dark-mode .social-icon {
+   filter: brightness(100);
+}

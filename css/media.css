@@ -12,6 +12,27 @@
     width: auto; 
     object-fit: cover; 
 }
+
+.imagen-footer {
+    text-align: center;
+    margin-left: -15px;
+    margin-top: 10px;
+}
+.social-grid {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 16px; 
+    margin-top: 5px;
+}
+
+.social-icon {
+    width: 32px;
+    height: 32px;
+    display: block;
+    filter: grayscale(100%) brightness(0);
+}
+
 .whatsapp-button {
     position: fixed;
     bottom: 20px;
@@ -35,4 +56,11 @@
 
 .whatsapp-button:hover {
     background-color: #1ebe5b;
+}
+
+.dark-mode-button{
+    position:fixed;
+    bottom:20px;
+    left:20px;
+    z-index:1000;
 }
