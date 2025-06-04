@@ -67,39 +67,46 @@ fetch('footer.html')
     })
     .catch(err => console.error('Error al cargar el footer:', err));
 
-// Mostrar aviso de pérdida de conexión en todo momento
-function mostrarAvisoSinConexion() {
-    document.body.innerHTML = '';
-    const contenedor = document.createElement('div');
-    contenedor.style.display = 'flex';
-    contenedor.style.flexDirection = 'column';
-    contenedor.style.alignItems = 'center';
-    contenedor.style.justifyContent = 'center';
-    contenedor.style.height = '100vh';
-    contenedor.style.background = '#181818';
-
-    const img = document.createElement('img');
-    img.src = 'img/No.png';
-    img.alt = 'Sin conexión';
-    img.style.width = '120px';
-    img.style.marginBottom = '24px';
-
-    const texto = document.createElement('p');
-    texto.textContent = 'Parece que perdiste tu conexión a internet. Por favor, verifica tu red.';
-    texto.style.color = '#fff';
-    texto.style.fontSize = '1.3rem';
-
-    contenedor.appendChild(img);
-    contenedor.appendChild(texto);
-    document.body.appendChild(contenedor);
-}
-
+// Mostrar aviso de pérdida de conexión como anuncio flotante
 function verificarConexion() {
     if (!navigator.onLine) {
-        mostrarAvisoSinConexion();
+        // Evita duplicados
+        if (document.getElementById('aviso-sin-conexion')) return;
+
+        const aviso = document.createElement('div');
+        aviso.id = 'aviso-sin-conexion';
+        aviso.style.position = 'fixed';
+        aviso.style.top = '0';
+        aviso.style.left = '0';
+        aviso.style.width = '100%';
+        aviso.style.background = '#c62828';
+        aviso.style.color = '#fff';
+        aviso.style.display = 'flex';
+        aviso.style.alignItems = 'center';
+        aviso.style.justifyContent = 'center';
+        aviso.style.gap = '16px';
+        aviso.style.padding = '16px 0';
+        aviso.style.zIndex = '9999';
+        aviso.style.fontSize = '1.1rem';
+        aviso.style.boxShadow = '0 2px 8px rgba(0,0,0,0.15)';
+
+        const img = document.createElement('img');
+        img.src = 'img/No.png';
+        img.alt = 'Sin conexión';
+        img.style.width = '40px';
+        img.style.height = '40px';
+
+        const texto = document.createElement('span');
+        texto.textContent = 'Sin conexión a internet. Por favor, verifica tu red.';
+
+        aviso.appendChild(img);
+        aviso.appendChild(texto);
+
+        document.body.appendChild(aviso);
     } else {
-        // Si vuelve la conexión, recarga la página para restaurar el contenido
-        location.reload();
+        // Si vuelve la conexión, elimina el aviso si existe
+        const aviso = document.getElementById('aviso-sin-conexion');
+        if (aviso) aviso.remove();
     }
 }
 
