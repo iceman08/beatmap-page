@@ -78,7 +78,7 @@ function verificarConexion() {
         aviso.style.position = 'fixed';
         aviso.style.top = '0';
         aviso.style.left = '0';
-        aviso.style.width = '100%';
+        aviso.style.width = '100vw';
         aviso.style.background = '#c62828';
         aviso.style.color = '#fff';
         aviso.style.display = 'flex';
@@ -86,7 +86,7 @@ function verificarConexion() {
         aviso.style.justifyContent = 'center';
         aviso.style.gap = '16px';
         aviso.style.padding = '16px 0';
-        aviso.style.zIndex = '9999';
+        aviso.style.zIndex = '99999';
         aviso.style.fontSize = '1.1rem';
         aviso.style.boxShadow = '0 2px 8px rgba(0,0,0,0.15)';
 
@@ -102,7 +102,13 @@ function verificarConexion() {
         aviso.appendChild(img);
         aviso.appendChild(texto);
 
-        document.body.appendChild(aviso);
+        // Inserta el aviso después del header si existe, si no al principio del body
+        const header = document.getElementById('header');
+        if (header && header.parentNode) {
+            header.parentNode.insertBefore(aviso, header.nextSibling);
+        } else {
+            document.body.insertBefore(aviso, document.body.firstChild);
+        }
     } else {
         // Si vuelve la conexión, elimina el aviso si existe
         const aviso = document.getElementById('aviso-sin-conexion');
