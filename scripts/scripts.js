@@ -67,32 +67,43 @@ fetch('footer.html')
     })
     .catch(err => console.error('Error al cargar el footer:', err));
 
-// Mostrar aviso de pérdida de conexión
+// Mostrar aviso de pérdida de conexión en todo momento
+function mostrarAvisoSinConexion() {
+    document.body.innerHTML = '';
+    const contenedor = document.createElement('div');
+    contenedor.style.display = 'flex';
+    contenedor.style.flexDirection = 'column';
+    contenedor.style.alignItems = 'center';
+    contenedor.style.justifyContent = 'center';
+    contenedor.style.height = '100vh';
+    contenedor.style.background = '#181818';
+
+    const img = document.createElement('img');
+    img.src = 'img/No.png';
+    img.alt = 'Sin conexión';
+    img.style.width = '120px';
+    img.style.marginBottom = '24px';
+
+    const texto = document.createElement('p');
+    texto.textContent = 'Parece que perdiste tu conexión a internet. Por favor, verifica tu red.';
+    texto.style.color = '#fff';
+    texto.style.fontSize = '1.3rem';
+
+    contenedor.appendChild(img);
+    contenedor.appendChild(texto);
+    document.body.appendChild(contenedor);
+}
+
 function verificarConexion() {
     if (!navigator.onLine) {
-        document.body.innerHTML = '';
-        const contenedor = document.createElement('div');
-        contenedor.style.display = 'flex';
-        contenedor.style.flexDirection = 'column';
-        contenedor.style.alignItems = 'center';
-        contenedor.style.justifyContent = 'center';
-        contenedor.style.height = '100vh';
-        contenedor.style.background = '#181818';
-
-        const img = document.createElement('img');
-        img.src = 'img/No.png';
-        img.alt = 'Sin conexión';
-        img.style.width = '120px';
-        img.style.marginBottom = '24px';
-
-        const texto = document.createElement('p');
-        texto.textContent = 'Parece que perdiste tu conexión a internet. Por favor, verifica tu red.';
-        texto.style.color = '#fff';
-        texto.style.fontSize = '1.3rem';
-
-        contenedor.appendChild(img);
-        contenedor.appendChild(texto);
-        document.body.appendChild(contenedor);
+        mostrarAvisoSinConexion();
+    } else {
+        // Si vuelve la conexión, recarga la página para restaurar el contenido
+        location.reload();
     }
 }
+
+// Verifica al cargar y cada vez que cambie el estado de conexión
 window.addEventListener('DOMContentLoaded', verificarConexion);
+window.addEventListener('offline', verificarConexion);
+window.addEventListener('online', verificarConexion);
