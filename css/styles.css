@@ -255,3 +255,8 @@ body.dark-mode footer{
 body.dark-mode .social-icon {
    filter: brightness(100);
 }
+
+body.dark-mode .dark-mode-button {
+    background-color: black;
+}
+
